@@ -7,22 +7,22 @@ AWS.config.update({
 
 const dynamodbDocumentClient = new AWS.DynamoDB.DocumentClient();
 
-const params = {
+const params = (year, title) => ({
   TableName: 'Songs',
   Key: {
-    'year': 2013,
-    'title': 'Gravity'
+    'year': year,
+    'title': title
   },
   // ProjectionExpression: '#year, title, info.#rank',
   // ExpressionAttributeNames: {
   //   '#year': 'year',
   //   "#rank": 'rank',
   // },
-};
+});
 
-const getItem = async () => {
+const getItem = async (year, title) => {
   try {
-    const item = await dynamodbDocumentClient.get(params).promise();
+    const item = await dynamodbDocumentClient.get(params(parseInt(year), title)).promise();
     console.log(item);
     return item;
   } catch (error) {

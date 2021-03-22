@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+// const getItem = require('./PersonGetItem');
 
 AWS.config.update({
   region: "us-west-2",
@@ -14,11 +15,19 @@ const params = {
       'Keys': [
         {
           "year": 2013,
-          "title": 'Gravity',
+          "title": 'Gravity'  
         },
         {
           "year": 2014,
-          "title": 'Divergent',
+          "title": 'Divergent'
+        },
+        {
+          "year": 1990,
+          "title": 'Red bean'
+        },
+        {
+          "year": 1989,
+          "title": 'What man'
         }
       ]
     }
@@ -34,5 +43,7 @@ const getItems= async () => {
     console.log(error);
   }
 }
+
+getItems();
 
 module.exports = getItems;

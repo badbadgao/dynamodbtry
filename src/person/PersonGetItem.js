@@ -30,4 +30,6 @@ const getItem = async (year, title) => {
   }
 }
 
+getItem(2013, 'Gravity');
+
 module.exports = getItem;

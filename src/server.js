@@ -19,6 +19,13 @@ app.get('/person',(req, res) => {
   })
 });
 
+// app.get('/persons',(req, res) => {
+//   getItems().then(item => {
+//     // res.send(item)
+//     res.json(item)
+//   })
+// });
+
 app.get('/person/:year/:title',(req, res) => {
   getItem(req.params.year, req.params.title).then(item => {
     // res.send(item)
